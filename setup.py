@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name='k2_core',
-    version='0.0.2',
+    version='0.0.7',
     author_email='simon.emmott@yahoo.co.uk',
     author='Simon Emmott',
     description='The core functionality for the K2 IDE service',

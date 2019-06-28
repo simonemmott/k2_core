@@ -1,6 +1,8 @@
-import k2_util
 
 class MemberMixin(object):
+    
+    def __init__(self):
+        self.__class__.__str__ = MemberMixin.__str__
     
     def __str__(self):
         return '{type}: {cls}::{field}({title})'.format(

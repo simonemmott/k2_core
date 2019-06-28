@@ -4,6 +4,9 @@ from k2_domain.models.field import Field
 
 class ModelMixin(object):
     
+    def __init__(self):
+        self.__class__.__str__ = ModelMixin.__str__
+
     def fields(self):
         return self.members.filter(type=Member.Type.FIELD)
     

@@ -1,9 +1,7 @@
-import k2_util
+from . import register
 
 class DomainMixin(object):
     
-    def __init__(self):
-        self.__class__.__str__ = DomainMixin.__str__
-
+    @register('k2_domain.models.domain', 'Domain')
     def __str__(self):
         return self.title

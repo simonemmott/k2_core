@@ -1,10 +1,9 @@
 import k2_util
+from . import register
 
 class SubTypeMixin(object):
     
-    def __init__(self):
-        self.__class__.__str__ = SubTypeMixin.__str__
-
+    @register('k2_domain.models.sub_type', 'SubType')
     def __str__(self):
         return '{model}::{field}[{type}]'.format(
             model=self.field.model.name,

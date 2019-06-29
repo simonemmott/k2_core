@@ -1,9 +1,8 @@
+from . import register
 
 class MemberMixin(object):
     
-    def __init__(self):
-        self.__class__.__str__ = MemberMixin.__str__
-    
+    @register('k2_domain.models.member', 'Member')
     def __str__(self):
         return '{type}: {cls}::{field}({title})'.format(
             type=self.get_type_display(),

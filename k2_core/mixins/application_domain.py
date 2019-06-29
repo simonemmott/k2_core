@@ -1,10 +1,8 @@
-import k2_util
+from . import register
 
 class ApplicationDomainMixin(object):
     
-    def __init__(self):
-        self.__class__.__str__ = ApplicationDomainMixin.__str__
-
+    @register('k2_app.models.application_domain', 'ApplicationDomain')
     def __str__(self):
         return self.domain.title
 

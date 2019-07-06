@@ -5,9 +5,6 @@ from . import register
 
 class ModelMixin(object):
     
-    def fields(self):
-        return self.members.filter(type=Member.Type.FIELD)
-    
     def type_fields(self):
         types = []
         for member in self.fields():
@@ -20,13 +17,13 @@ class ModelMixin(object):
         return self.title
     
     def class_name(self):
-        return k2_util.to_class_case(self.name)
+        return k2_util.to_class_case(self.basename())
     
     def package_name(self):
-        return k2_util.to_snake_case(self.name)
+        return k2_util.to_snake_case(self.basename())
     
     def fields(self):
-        return Field.objects.filter(model=self)
+        return Field.objects.filter(base_type=self)
     
     def plural_title(self):
         return self.p_title if self.p_title else k2_util.to_plural(self.title)

@@ -4,9 +4,8 @@ class MemberMixin(object):
     
     @register('k2_domain.models.member', 'Member')
     def __str__(self):
-        return '{type}: {cls}::{field}({title})'.format(
-            type=self.get_type_display(),
-            cls=self.model.class_name(),
+        return '{type}::{field}({title})'.format(
+            type=self.base_type.name,
             field=self.name,
             title=self.title
         )

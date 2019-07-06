@@ -1,5 +1,4 @@
 import k2_util
-from k2_domain.models.member import Member
 from k2_domain.models.field import Field
 from . import register
 
@@ -23,7 +22,7 @@ class ModelMixin(object):
         return k2_util.to_snake_case(self.basename())
     
     def fields(self):
-        return Field.objects.filter(base_type=self)
+        return Field.objects.filter(member_of_type=self)
     
     def plural_title(self):
         return self.p_title if self.p_title else k2_util.to_plural(self.title)

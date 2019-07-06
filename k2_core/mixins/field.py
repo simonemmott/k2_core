@@ -56,9 +56,9 @@ class FieldMixin(object):
     
     def title_or_link_type(self):
         if self.field_type in [self.__class__.FieldType.LINKED]:
-            if self.object_type.domain == self.model.domain:
-                return self.object_type.class_name()
-            return '{domain}.{model}'.format(domain=self.object_type.domain.name, model=self.object_type.class_name())
+            if self.data_type.model.domain == self.member_of_type.model.domain:
+                return self.data_type.model.class_name()
+            return '{domain}.{model}'.format(domain=self.data_type.model.domain.name, model=self.data_type.model.class_name())
         return self.title
     
     def model_field_options(self):

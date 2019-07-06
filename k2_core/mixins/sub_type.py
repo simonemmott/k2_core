@@ -5,8 +5,8 @@ class SubTypeMixin(object):
     
     @register('k2_domain.models.sub_type', 'SubType')
     def __str__(self):
-        return '{type}::{field}[{type}]'.format(
-            model=self.field.base_type.name,
+        return '{model}::{field}[{type}]'.format(
+            model=self.field.member_of_type.name,
             field=self.field.name,
             type=self.type_name()
         )

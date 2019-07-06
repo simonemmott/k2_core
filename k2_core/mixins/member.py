@@ -2,10 +2,10 @@ from . import register
 
 class MemberMixin(object):
     
-    @register('k2_domain.models.member', 'Member')
+    @register('k2_app.models.member', 'Member')
     def __str__(self):
         return '{type}::{field}({title})'.format(
-            type=self.base_type.name,
+            type=self.member_of_type.name,
             field=self.name,
             title=self.title
         )
